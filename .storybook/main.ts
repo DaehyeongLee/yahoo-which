@@ -19,4 +19,5 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
 }
+// 주석테스트
 export default config
