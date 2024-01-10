@@ -13,6 +13,9 @@ export default function Home() {
         <Typography variant='p'>트</Typography>
         <Typography variant='span'>테스트</Typography>
       </div>
+      <h1 className="text-2xl font-bold underline">
+        Hello world!
+      </h1>
     </main>
   )
 }
