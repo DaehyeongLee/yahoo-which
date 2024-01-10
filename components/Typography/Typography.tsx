@@ -1,10 +1,10 @@
-import { FC, ReactNode, createElement } from "react"
+import { FC, ReactNode, createElement } from 'react'
 
 export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 interface TypographyProps {
-  children: ReactNode;
-  variant?: TypographyVariant;
-  className?: string;
+  children: ReactNode
+  variant?: TypographyVariant
+  className?: string
 }
 
 const Typography: FC<TypographyProps> = ({ children, variant = 'p', className = '' }) => {

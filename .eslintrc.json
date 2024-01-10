@@ -1,3 +1,45 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "rules": {
+    "rules": {
+      "curly": [
+        "error",
+        "all"
+      ],
+      "no-console": "warn",
+      "react/jsx-curly-brace-presence": [
+        "error",
+        "never"
+      ],
+      "react/jsx-no-useless-fragment": [
+        "error",
+        {
+          "allowExpressions": true
+        }
+      ],
+      "react/destructuring-assignment": [
+        "error",
+        "always",
+        {
+          "destructureInSignature": "always"
+        }
+      ],
+      "import/prefer-default-export": [
+        "warn",
+        {
+          "target": "single"
+        }
+      ],
+      "import/no-unused-modules": [
+        "error",
+        {
+          "unusedExports": true,
+          "ignoreExports": [
+            "pages/**/*",
+            "**/*.stories.{ts,tsx}"
+          ]
+        }
+      ]
+    }
+  }
 }
