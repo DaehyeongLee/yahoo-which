@@ -1,4 +1,4 @@
-import { FC, ReactNode, ReactElement } from 'react'
+import { FC, ReactElement } from 'react'
 
 export type VerticalCardVariant = 'outlined' | 'default'
 interface VerticalCardProps {
@@ -25,9 +25,9 @@ const VerticalCard: FC<VerticalCardProps> = ({
 
   return (
     <div className={cardClassName}>
-      {headerContent && <div className="p-2.5">{headerContent}</div>}
-      <img src={img} className={variant === 'default' ? 'rounded mb-2' : undefined} />
-      <div className={variant === 'outlined' ? 'p-[15px]' : undefined}>{BottomContent}</div>
+      {headerContent && <div className={`p-2.5 ${headerClassName}`}>{headerContent}</div>}
+      <img src={img} className={`${variant === 'default' ? 'rounded mb-2' : undefined} ${imgClassName}`} />
+      <div className={`${variant === 'outlined' ? 'p-[15px]' : undefined} ${BottomClassName}`}>{BottomContent}</div>
     </div>
   )
 }
