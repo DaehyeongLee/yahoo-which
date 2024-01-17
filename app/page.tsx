@@ -2,6 +2,7 @@ import Button from '@/components/Button/Button'
 import VerticalCard from '@/components/Card/VerticalCard'
 import Typography from '@/components/Typography/Typography'
 import HorizontalCard from '@/components/Card/HorizontalCard'
+import Carousel from '@/components/Carousel/Carousel'
 
 export default function Home() {
   return (
@@ -92,6 +93,11 @@ export default function Home() {
               <Typography variant="p">고급스럽고 이국적인 분위기에서 즐기는 유러피안 퀴진3</Typography>
             </div>
           }
+        />
+      </div>
+      <div>
+        <Carousel
+          contents={[{ img: 'testImg.jpeg', link: '/' }, { img: 'testImg.jpeg' }, { img: 'testImg.jpeg', link: '/' }]}
         />
       </div>
     </main>
