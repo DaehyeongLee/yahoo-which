@@ -15,16 +15,17 @@ interface CarouselProps {
   contents: Array<CarouselContentType>
   variant?: CarouselVariant
   className?: string
+  slidesPerView?: number
 }
 
-const Carousel: FC<CarouselProps> = ({ contents, variant = 'default', className = '' }) => {
+const Carousel: FC<CarouselProps> = ({ contents, variant = 'default', className = '', slidesPerView = 3 }) => {
   const image = (url: string, index: number) => {
     return <img src={url} className="object-cover rounded-lg" alt={`carousel-${index}`} />
   }
 
   return (
     <Swiper
-      slidesPerView={3}
+      slidesPerView={slidesPerView}
       centeredSlides={true}
       spaceBetween={10}
       grabCursor={true}
