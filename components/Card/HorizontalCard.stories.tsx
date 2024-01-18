@@ -13,8 +13,8 @@ export const Sample: Story = {
   render: () => (
     <div className="grid grid-cols-3">
       <HorizontalCard
-        variant="img_lg"
-        img="testImg.jpeg"
+        variant="image_lg"
+        image="/testImg.jpeg"
         content={
           <div>
             <h4>런던 베이글 뮤지엄</h4>
@@ -23,7 +23,7 @@ export const Sample: Story = {
         }
       />
       <HorizontalCard
-        img="testImg.jpeg"
+        image="/testImg.jpeg"
         content={
           <div>
             <h6>테라스룸 서울</h6>
@@ -33,7 +33,7 @@ export const Sample: Story = {
       />
       <HorizontalCard
         variant="content_lg"
-        img="testImg.jpeg"
+        image="/testImg.jpeg"
         content={
           <div>
             <h6>테라스룸 서울</h6>

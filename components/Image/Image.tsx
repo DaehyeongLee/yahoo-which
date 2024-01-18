@@ -1,3 +1,4 @@
+'use client'
 import { default as NextImage, ImageProps as NextImageProps } from 'next/image'
 import React, { FC, ReactElement, useState } from 'react'
 
