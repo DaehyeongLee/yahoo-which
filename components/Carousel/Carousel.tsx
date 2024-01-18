@@ -3,6 +3,7 @@ import { FC } from 'react'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import Image from '../Image/Image'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -16,11 +17,28 @@ interface CarouselProps {
   variant?: CarouselVariant
   className?: string
   slidesPerView?: number
+  imageWidth: number
+  imageHeight: number
 }
 
-const Carousel: FC<CarouselProps> = ({ contents, variant = 'default', className = '', slidesPerView = 3 }) => {
+const Carousel: FC<CarouselProps> = ({
+  contents,
+  variant = 'default',
+  className = '',
+  slidesPerView = 3,
+  imageWidth,
+  imageHeight,
+}) => {
   const image = (url: string, index: number) => {
-    return <img src={url} className="object-cover rounded-lg" alt={`carousel-${index}`} />
+    return (
+      <Image
+        url={url}
+        width={imageWidth}
+        height={imageHeight}
+        className="object-cover rounded-lg"
+        alt={`carousel-${index}`}
+      />
+    )
   }
 
   return (

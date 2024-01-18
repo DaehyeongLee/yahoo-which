@@ -97,7 +97,13 @@ export default function Home() {
       </div>
       <div>
         <Carousel
-          contents={[{ img: 'testImg.jpeg', link: '/' }, { img: 'testImg.jpeg' }, { img: 'testImg.jpeg', link: '/' }]}
+          contents={[
+            { img: '/testImg.jpeg', link: '/' },
+            { img: '/testImg.jpeg' },
+            { img: '/testImg.jpeg', link: '/' },
+          ]}
+          imageHeight={500}
+          imageWidth={500}
         />
       </div>
     </main>
