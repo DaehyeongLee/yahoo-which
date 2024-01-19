@@ -25,13 +25,11 @@ const VerticalCard: FC<VerticalCardProps> = ({
   imageWidth,
   imageHeight,
 }) => {
-  const cardClassName =
-    variant === 'outlined'
-      ? `w-[${imageWidth}px] rounded-xl bg-white shadow-[4px_4px_12px_rgba(0,0,0,0.1)]`
-      : `w-[${imageWidth}px]`
-
   return (
-    <div className={cardClassName}>
+    <div
+      style={{ width: imageWidth }}
+      className={variant === 'outlined' ? 'rounded-xl bg-white shadow-[4px_4px_12px_rgba(0,0,0,0.1)]' : undefined}
+    >
       {headerContent && <div className={`p-2.5 ${headerClassName}`}>{headerContent}</div>}
       <Image
         url={image}
