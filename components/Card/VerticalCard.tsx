@@ -1,32 +1,42 @@
 import { FC, ReactElement } from 'react'
+import Image from '../Image/Image'
 
 export type VerticalCardVariant = 'outlined' | 'default'
 interface VerticalCardProps {
-  img: string
+  image: string
   headerContent?: ReactElement
   BottomContent: ReactElement
   variant?: VerticalCardVariant
-  imgClassName?: string
+  imageClassName?: string
   headerClassName?: string
   BottomClassName?: string
+  imageWidth: number
+  imageHeight: number
 }
 
 const VerticalCard: FC<VerticalCardProps> = ({
-  img,
+  image,
   headerContent,
   BottomContent,
   variant = 'default',
-  imgClassName,
+  imageClassName,
   headerClassName,
   BottomClassName,
+  imageWidth,
+  imageHeight,
 }) => {
-  const cardClassName =
-    variant === 'outlined' ? 'w-[200px] rounded-xl bg-white shadow-[4px_4px_12px_rgba(0,0,0,0.1)]' : 'w-[200px]'
-
   return (
-    <div className={cardClassName}>
+    <div
+      style={{ width: imageWidth }}
+      className={variant === 'outlined' ? 'rounded-xl bg-white shadow-[4px_4px_12px_rgba(0,0,0,0.1)]' : undefined}
+    >
       {headerContent && <div className={`p-2.5 ${headerClassName}`}>{headerContent}</div>}
-      <img src={img} className={`${variant === 'default' ? 'rounded mb-2' : undefined} ${imgClassName}`} />
+      <Image
+        url={image}
+        className={`${variant === 'default' ? 'rounded mb-2' : undefined} ${imageClassName}`}
+        width={imageWidth}
+        height={imageHeight}
+      />
       <div className={`${variant === 'outlined' ? 'p-[15px]' : undefined} ${BottomClassName}`}>{BottomContent}</div>
     </div>
   )
