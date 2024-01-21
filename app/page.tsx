@@ -4,6 +4,7 @@ import Typography from '@/components/Typography/Typography'
 import HorizontalCard from '@/components/Card/HorizontalCard'
 import Carousel from '@/components/Carousel/Carousel'
 import Footer from '@/templates/Footer'
+import Tooltip from '@/components/Tooltip/Tooltip'
 
 export default function Home() {
   return (
@@ -99,6 +100,17 @@ export default function Home() {
           imageHeight={500}
           imageWidth={500}
         />
+      </div>
+      <div>
+        <Tooltip
+          content={
+            <>
+              전국 웨이팅 맛집의 일 평균 <br /> 웨이팅 인원으로 생성한 랭킹 차트입니다.
+            </>
+          }
+        >
+          <Button variant="filled">Tooltip</Button>
+        </Tooltip>
       </div>
       <Footer />
     </main>
