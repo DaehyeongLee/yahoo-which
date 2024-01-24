@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} grid place-content-center`}>
+        <div className="max-w-[480px] mx-0 my-auto bg-white relative min-h-full shadow-[0_0_20px_rgba(0,0,0,0.05)]">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
