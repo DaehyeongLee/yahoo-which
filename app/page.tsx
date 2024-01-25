@@ -5,11 +5,21 @@ import HorizontalCard from '@/components/Card/HorizontalCard'
 import Carousel from '@/components/Carousel/Carousel'
 import Footer from '@/templates/Footer'
 import Tooltip from '@/components/Tooltip/Tooltip'
+import Input from '@/components/Input/Input'
 
 export default function Home() {
+  const IconSearch = (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M22.4717 21.0705L16.817 15.4174C18.0408 13.9197 18.716 12.0339 18.716 9.9752C18.716 5.12785 14.786 1.2002 9.9386 1.2002C5.09122 1.2002 1.19922 5.12912 1.19922 9.9752C1.19922 14.8213 5.12878 18.7502 9.9386 18.7502C11.9975 18.7502 13.8863 18.0368 15.3823 16.8501L21.0369 22.5032C21.2732 22.7032 21.5348 22.8002 21.7923 22.8002C22.0497 22.8002 22.3105 22.7013 22.5084 22.5036C22.9021 22.1083 22.9021 21.4671 22.4717 21.0705ZM3.22477 9.9752C3.22477 6.25341 6.2538 3.2252 9.97658 3.2252C13.6994 3.2252 16.7284 6.25341 16.7284 9.9752C16.7284 13.697 13.6994 16.7252 9.97658 16.7252C6.2538 16.7252 3.22477 13.6961 3.22477 9.9752Z"
+        fill="#666666"
+      />
+    </svg>
+  )
   return (
     <main>
       <div>
+        <Input placeholder={'지역, 음식, 매장명 검색'} icon={IconSearch} />
         <Button variant="outlined">
           {/* TODO: &#62;는 아이콘 추가 이후 대체 */}
           <strong>더 시에나 라운지</strong>의 4개 레스토랑 전체보기 &#62;
