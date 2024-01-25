@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${inter.className} grid place-content-center`}>
-        <div className="max-w-[480px] mx-0 my-auto bg-white relative min-h-full shadow-[0_0_20px_rgba(0,0,0,0.05)]">
+        <div className="min-[480px]:max-w-[480px] min-h-full overflow-x-hidden mx-0 my-0 py-0 bg-white relative shadow-[0_0_20px_rgba(0,0,0,0.05)]">
           {children}
         </div>
       </body>
