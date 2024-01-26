@@ -15,7 +15,14 @@ module.exports = {
       sm: '0.7rem',
       md: '0.9rem',
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        'bottom-sheet-up': {
+          '0%': { transform: 'translateY(420px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+      },
+    },
   },
   plugins: [require('flowbite/plugin'), require('tailwind-scrollbar-hide')],
 }

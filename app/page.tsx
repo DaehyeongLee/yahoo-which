@@ -1,3 +1,5 @@
+'use client'
+
 import Button from '@/components/Button/Button'
 import VerticalCard from '@/components/Card/VerticalCard'
 import Typography from '@/components/Typography/Typography'
@@ -7,8 +9,11 @@ import Footer from '@/templates/Footer'
 import Tooltip from '@/components/Tooltip/Tooltip'
 import Input from '@/components/Input/Input'
 import RestaurantCard from '@/templates/Card/RestaurantCard'
+import { useState } from 'react'
+import Modal from '@/components/Modal/Modal'
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
   const IconSearch = (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -21,7 +26,7 @@ export default function Home() {
     <main>
       <div>
         <Input placeholder={'지역, 음식, 매장명 검색'} icon={IconSearch} />
-        <Button variant="outlined">
+        <Button variant="outlined" onClick={() => setModalOpen(true)}>
           {/* TODO: &#62;는 아이콘 추가 이후 대체 */}
           <strong>더 시에나 라운지</strong>의 4개 레스토랑 전체보기 &#62;
         </Button>
@@ -32,6 +37,9 @@ export default function Home() {
         <br />
         <Button variant="nolined">전체보기 &#62;</Button>
       </div>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        hi
+      </Modal>
       <br />
       <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
         {restaurantCards.map((card) => (
