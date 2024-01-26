@@ -33,7 +33,7 @@ export default function Home() {
         <Button variant="nolined">전체보기 &#62;</Button>
       </div>
       <br />
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden">
+      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
         {restaurantCards.map((card) => (
           <RestaurantCard
             name={card.name}
