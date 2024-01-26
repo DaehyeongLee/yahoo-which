@@ -31,12 +31,14 @@ const VerticalCard: FC<VerticalCardProps> = ({
       className={variant === 'outlined' ? 'rounded-xl bg-white shadow-[4px_4px_12px_rgba(0,0,0,0.1)]' : undefined}
     >
       {headerContent && <div className={`p-2.5 ${headerClassName}`}>{headerContent}</div>}
-      <Image
-        url={image}
-        className={`${variant === 'default' ? 'rounded mb-2' : undefined} ${imageClassName}`}
-        width={imageWidth}
-        height={imageHeight}
-      />
+      <div style={{ width: imageWidth, height: imageHeight }} className="relative mb-2">
+        {/* @ts-ignore */}
+        <Image
+          url={image}
+          className={`bg-cover ${variant === 'default' ? 'rounded' : undefined} ${imageClassName}`}
+          fill
+        />
+      </div>
       <div className={`${variant === 'outlined' ? 'p-[15px]' : undefined} ${BottomClassName}`}>{BottomContent}</div>
     </div>
   )

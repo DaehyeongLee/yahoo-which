@@ -6,6 +6,7 @@ import Carousel from '@/components/Carousel/Carousel'
 import Footer from '@/templates/Footer'
 import Tooltip from '@/components/Tooltip/Tooltip'
 import Input from '@/components/Input/Input'
+import RestaurantCard from '@/templates/Card/RestaurantCard'
 
 export default function Home() {
   const IconSearch = (
@@ -32,20 +33,18 @@ export default function Home() {
         <Button variant="nolined">전체보기 &#62;</Button>
       </div>
       <br />
-      <div className="grid grid-cols-3">
-        <VerticalCard
-          image="/testImg.jpeg"
-          BottomContent={
-            <div>
-              <Typography variant="h3" className="mb-1">
-                해운대 타이가텐푸라
-              </Typography>
-              <Typography variant="p">일식 • 부산 해운대</Typography>
-            </div>
-          }
-          imageWidth={200}
-          imageHeight={200}
-        />
+      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden">
+        {restaurantCards.map((card) => (
+          <RestaurantCard
+            name={card.name}
+            score={card.score}
+            address={card.address}
+            category={card.category}
+            image={card.image}
+          />
+        ))}
+      </div>
+      <div className="mt-4 grid grid-cols-3">
         <VerticalCard
           variant="outlined"
           image="/testImg.jpeg"
@@ -126,3 +125,27 @@ export default function Home() {
     </main>
   )
 }
+
+const restaurantCards = [
+  {
+    name: '가이연 천호 본점',
+    score: '4.4',
+    category: '샤브샤브',
+    address: '천호',
+    image: '/temp/sukiyaki.jpg',
+  },
+  {
+    name: '잊힐리야',
+    score: '4.6',
+    category: '요리주점',
+    address: '성수',
+    image: '/temp/drinkfood.jpg',
+  },
+  {
+    name: '하이디라오 건대 본점',
+    score: '4.2',
+    category: '중식',
+    address: '건대',
+    image: '/temp/hidirao.jpg',
+  },
+]
