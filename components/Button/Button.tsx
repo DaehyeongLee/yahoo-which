@@ -1,13 +1,14 @@
-import { FC, ReactNode } from 'react'
+import { FC, MouseEventHandler, ReactNode } from 'react'
 
 export type ButtonVariant = 'outlined' | 'filled' | 'nolined'
 interface ButtonProps {
   children: ReactNode
   variant?: ButtonVariant
   className?: string
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button: FC<ButtonProps> = ({ children, variant = 'outlined', className = '' }) => {
+const Button: FC<ButtonProps> = ({ children, variant = 'outlined', className = '', onClick }) => {
   const baseClasses = 'text-center rounded-md'
 
   const variantClasses = {
@@ -18,7 +19,11 @@ const Button: FC<ButtonProps> = ({ children, variant = 'outlined', className = '
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`
 
-  return <button className={classes}>{children}</button>
+  return (
+    <button className={classes} onClick={onClick}>
+      {children}
+    </button>
+  )
 }
 
 export default Button
