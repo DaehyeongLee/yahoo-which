@@ -44,6 +44,7 @@ export default function Home() {
       <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
         {restaurantCards.map((card) => (
           <RestaurantCard
+            key={card.id}
             name={card.name}
             score={card.score}
             address={card.address}
@@ -136,6 +137,7 @@ export default function Home() {
 
 const restaurantCards = [
   {
+    id: 0,
     name: '가이연 천호 본점',
     score: '4.4',
     category: '샤브샤브',
@@ -143,6 +145,7 @@ const restaurantCards = [
     image: '/temp/sukiyaki.jpg',
   },
   {
+    id: 1,
     name: '잊힐리야',
     score: '4.6',
     category: '요리주점',
@@ -150,6 +153,7 @@ const restaurantCards = [
     image: '/temp/drinkfood.jpg',
   },
   {
+    id: 2,
     name: '하이디라오 건대 본점',
     score: '4.2',
     category: '중식',
