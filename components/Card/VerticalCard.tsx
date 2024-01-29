@@ -35,7 +35,7 @@ const VerticalCard: FC<VerticalCardProps> = ({
         {/* @ts-ignore */}
         <Image
           url={image}
-          className={`bg-cover ${variant === 'default' ? 'rounded' : undefined} ${imageClassName}`}
+          className={`bg-cover ${variant === 'default' ? 'rounded-xl' : undefined} ${imageClassName}`}
           fill
         />
       </div>
