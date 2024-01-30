@@ -8,6 +8,8 @@ interface RestaurantCardProps {
   category: string
   address: string
   image?: string
+  imageWidth: number
+  imageHeight: number
 }
 
 // TODO: svg icon을 next.js 세팅 후 컴포넌트처럼 사용할 수 있게 변경 필요
@@ -37,7 +39,15 @@ const bookmarkIcon = (
   </svg>
 )
 
-const RestaurantCard: FC<RestaurantCardProps> = ({ name, score, category, address, image }) => {
+const RestaurantCard: FC<RestaurantCardProps> = ({
+  name,
+  score,
+  category,
+  address,
+  image,
+  imageWidth,
+  imageHeight,
+}) => {
   return (
     <VerticalCard
       image={image ?? ''}
@@ -60,8 +70,8 @@ const RestaurantCard: FC<RestaurantCardProps> = ({ name, score, category, addres
           {bookmarkIcon}
         </div>
       }
-      imageWidth={200}
-      imageHeight={200}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
     />
   )
 }
