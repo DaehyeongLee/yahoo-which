@@ -34,13 +34,9 @@ export default function Home() {
         </Button>
         <br />
         <br />
-        <Button variant="filled">오후 8:00</Button>
-        <br />
-        <br />
         {accordionMenuData.map((category, index) => (
           <Accordion key={index} data={category} isFirst={index === 0} />
         ))}
-        <Button variant="nolined">전체보기 &#62;</Button>
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         hi
