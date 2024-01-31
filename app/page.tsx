@@ -12,6 +12,7 @@ import RestaurantCard from '@/templates/Card/RestaurantCard'
 import RestaurantTimeListCard from '@/templates/Card/RestaurantTimeListCard'
 import { useState } from 'react'
 import Modal from '@/components/Modal/Modal'
+import Accordion from '@/components/Accordion/Accordion'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -33,10 +34,9 @@ export default function Home() {
         </Button>
         <br />
         <br />
-        <Button variant="filled">오후 8:00</Button>
-        <br />
-        <br />
-        <Button variant="nolined">전체보기 &#62;</Button>
+        {accordionMenuData.map((category, index) => (
+          <Accordion key={index} data={category} isFirst={index === 0} />
+        ))}
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         hi
@@ -180,5 +180,23 @@ const restaurantCards = [
     address: '건대',
     image: '/temp/hidirao.jpg',
     timeList: ['오후 7:00', '오후 7:30', '오후 8:00'],
+  },
+]
+
+const accordionMenuData = [
+  {
+    name: 'PASTA',
+    items: [
+      { name: '까르보나라', price: 11000 },
+      { name: '로제파스타', price: 13000 },
+    ],
+  },
+  {
+    name: 'PIZZA',
+    items: [
+      { name: '이재모 크러스트', price: 25000 },
+      { name: '크러스트 불고기', price: 28000 },
+      { name: '크러스트 왕새우', price: 32000 },
+    ],
   },
 ]
