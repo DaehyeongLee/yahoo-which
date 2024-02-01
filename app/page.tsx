@@ -44,33 +44,37 @@ export default function Home() {
       </Modal>
       <br />
       <Section mainTitle="웨이팅 핫플레이스 BEST" subTitle="핫 한 웨이팅 라인업, 이제 고용대컴퍼니에서!" detailLink="/">
-        {restaurantCards.map((card) => (
-          <RestaurantCard
-            key={card.id}
-            name={card.name}
-            score={card.score}
-            address={card.address}
-            category={card.category}
-            image={card.image}
-            imageHeight={200}
-            imageWidth={200}
-          />
-        ))}
+        <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
+          {restaurantCards.map((card) => (
+            <RestaurantCard
+              key={card.id}
+              name={card.name}
+              score={card.score}
+              address={card.address}
+              category={card.category}
+              image={card.image}
+              imageHeight={200}
+              imageWidth={200}
+            />
+          ))}
+        </div>
       </Section>
       <Section mainTitle="즉시 예약이 가능한 레스토랑" detailLink="/">
-        {restaurantCards.map((card) => (
-          <RestaurantTimeListCard
-            key={card.id}
-            name={card.name}
-            score={card.score}
-            address={card.address}
-            category={card.category}
-            image={card.image}
-            imageHeight={150}
-            imageWidth={250}
-            timeList={card.timeList}
-          />
-        ))}
+        <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
+          {restaurantCards.map((card) => (
+            <RestaurantTimeListCard
+              key={card.id}
+              name={card.name}
+              score={card.score}
+              address={card.address}
+              category={card.category}
+              image={card.image}
+              imageHeight={150}
+              imageWidth={250}
+              timeList={card.timeList}
+            />
+          ))}
+        </div>
       </Section>
       <div className="mt-4 grid grid-cols-3">
         <VerticalCard

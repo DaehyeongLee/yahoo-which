@@ -31,7 +31,7 @@ const Section: FC<SectionProps> = ({ children, mainTitle, subTitle, detailLink }
   return (
     <div className="pb-11 px-5">
       {mainTitle && (detailLink ? <Link href={detailLink}>{header()}</Link> : header())}
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide ">{children}</div>
+      {children}
     </div>
   )
 }
