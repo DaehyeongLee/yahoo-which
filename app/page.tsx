@@ -13,6 +13,7 @@ import RestaurantTimeListCard from '@/templates/card/RestaurantTimeListCard'
 import { useState } from 'react'
 import Modal from '@/components/Modal/Modal'
 import Accordion from '@/components/Accordion/Accordion'
+import Section from '@/templates/common/Section'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -42,7 +43,7 @@ export default function Home() {
         hi
       </Modal>
       <br />
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide mb-10 px-5">
+      <Section mainTitle="웨이팅 핫플레이스 BEST" subTitle="핫 한 웨이팅 라인업, 이제 고용대컴퍼니에서!" detailLink="/">
         {restaurantCards.map((card) => (
           <RestaurantCard
             key={card.id}
@@ -55,8 +56,8 @@ export default function Home() {
             imageWidth={200}
           />
         ))}
-      </div>
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide px-5">
+      </Section>
+      <Section mainTitle="즉시 예약이 가능한 레스토랑" detailLink="/">
         {restaurantCards.map((card) => (
           <RestaurantTimeListCard
             key={card.id}
@@ -70,7 +71,7 @@ export default function Home() {
             timeList={card.timeList}
           />
         ))}
-      </div>
+      </Section>
       <div className="mt-4 grid grid-cols-3">
         <VerticalCard
           variant="outlined"
