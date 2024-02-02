@@ -8,11 +8,12 @@ import Carousel from '@/components/Carousel/Carousel'
 import Footer from '@/templates/Footer'
 import Tooltip from '@/components/Tooltip/Tooltip'
 import Input from '@/components/Input/Input'
-import RestaurantCard from '@/templates/Card/RestaurantCard'
-import RestaurantTimeListCard from '@/templates/Card/RestaurantTimeListCard'
+import RestaurantCard from '@/templates/card/RestaurantCard'
+import RestaurantTimeListCard from '@/templates/card/RestaurantTimeListCard'
 import { useState } from 'react'
 import Modal from '@/components/Modal/Modal'
 import Accordion from '@/components/Accordion/Accordion'
+import Section from '@/templates/common/Section'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -42,35 +43,39 @@ export default function Home() {
         hi
       </Modal>
       <br />
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide mb-10 px-5">
-        {restaurantCards.map((card) => (
-          <RestaurantCard
-            key={card.id}
-            name={card.name}
-            score={card.score}
-            address={card.address}
-            category={card.category}
-            image={card.image}
-            imageHeight={200}
-            imageWidth={200}
-          />
-        ))}
-      </div>
-      <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide px-5">
-        {restaurantCards.map((card) => (
-          <RestaurantTimeListCard
-            key={card.id}
-            name={card.name}
-            score={card.score}
-            address={card.address}
-            category={card.category}
-            image={card.image}
-            imageHeight={150}
-            imageWidth={250}
-            timeList={card.timeList}
-          />
-        ))}
-      </div>
+      <Section mainTitle="웨이팅 핫플레이스 BEST" subTitle="핫 한 웨이팅 라인업, 이제 고용대컴퍼니에서!" detailLink="/">
+        <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
+          {restaurantCards.map((card) => (
+            <RestaurantCard
+              key={card.id}
+              name={card.name}
+              score={card.score}
+              address={card.address}
+              category={card.category}
+              image={card.image}
+              imageHeight={200}
+              imageWidth={200}
+            />
+          ))}
+        </div>
+      </Section>
+      <Section mainTitle="즉시 예약이 가능한 레스토랑" detailLink="/">
+        <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
+          {restaurantCards.map((card) => (
+            <RestaurantTimeListCard
+              key={card.id}
+              name={card.name}
+              score={card.score}
+              address={card.address}
+              category={card.category}
+              image={card.image}
+              imageHeight={150}
+              imageWidth={250}
+              timeList={card.timeList}
+            />
+          ))}
+        </div>
+      </Section>
       <div className="mt-4 grid grid-cols-3">
         <VerticalCard
           variant="outlined"

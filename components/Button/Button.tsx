@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({ children, variant = 'outlined', className = '
   const variantClasses = {
     outlined: 'bg-white text-black border border-black px-5 py-0 leading-10 w-full text-[14px]',
     filled: 'flex-1 bg-[#ff3d00] text-white border border-[#ff3d00] px-1 py-2.5 text-[13px] leading-[13px]',
-    nolined: 'bg-inherit text-black text-xs',
+    nolined: 'bg-inherit text-black text-[12px] leading-4',
   }
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${className}`
