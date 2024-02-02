@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 interface SectionProps {
   children: ReactNode
-  mainTitle?: string
+  mainTitle: string
   subTitle?: string
   detailLink?: string
 }
@@ -30,7 +30,7 @@ const Section: FC<SectionProps> = ({ children, mainTitle, subTitle, detailLink }
   }
   return (
     <div className="pb-11 px-5">
-      {mainTitle && (detailLink ? <Link href={detailLink}>{header()}</Link> : header())}
+      {detailLink ? <Link href={detailLink}>{header()}</Link> : header()}
       {children}
     </div>
   )
