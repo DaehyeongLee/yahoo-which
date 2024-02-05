@@ -51,7 +51,7 @@ const RestaurantCard: FC<RestaurantCardProps> = ({
   return (
     <VerticalCard
       image={image ?? ''}
-      BottomContent={
+      bottomContent={
         <div className="flex justify-between items-center">
           <div>
             <Typography variant="p" className="mb-1 font-medium">
