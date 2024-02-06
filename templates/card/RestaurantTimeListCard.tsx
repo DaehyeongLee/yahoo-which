@@ -3,39 +3,17 @@ import RestaurantCard from './RestaurantCard'
 import Button from '@/components/Button/Button'
 
 interface RestaurantTimeListCardProps {
-  name: string
-  score?: string
-  category: string
-  address: string
-  image?: string
+  restaurantCardInfo: any
   imageWidth: number
   imageHeight: number
-  timeList: Array<string>
 }
 
-const RestaurantTimeListCard: FC<RestaurantTimeListCardProps> = ({
-  name,
-  score,
-  category,
-  address,
-  image,
-  imageHeight,
-  imageWidth,
-  timeList,
-}) => {
+const RestaurantTimeListCard: FC<RestaurantTimeListCardProps> = ({ restaurantCardInfo, imageHeight, imageWidth }) => {
   return (
     <div>
-      <RestaurantCard
-        name={name}
-        score={score}
-        address={address}
-        category={category}
-        image={image}
-        imageHeight={imageHeight}
-        imageWidth={imageWidth}
-      />
+      <RestaurantCard restaurantCardInfo={restaurantCardInfo} imageHeight={imageHeight} imageWidth={imageWidth} />
       <div className="mt-4 flex space-x-1.5">
-        {timeList.map((time, index) =>
+        {restaurantCardInfo.timeList.map((time: string, index: number) =>
           time ? (
             <Button key={index} variant="filled">
               {time}

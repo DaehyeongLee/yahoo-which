@@ -4,17 +4,7 @@ import Typography from '@/components/Typography/Typography'
 import Image from '@/components/Image/Image'
 
 interface UserReviewCard {
-  name: string
-  score?: string
-  reviewCount?: number
-  category: string
-  address: string
-  nickName: string
-  profileImage?: string
-  image?: string
-  currentVisitDate: string
-  reviewMainText: string
-  reviewSubText?: string
+  userReviewInfo: any
   imageWidth: number
   imageHeight: number
 }
@@ -50,32 +40,20 @@ const bookmarkIcon = (
     북마크 아이콘 클릭시 이동
 */
 
-const UserReviewCard: FC<UserReviewCard> = ({
-  name,
-  score,
-  reviewCount,
-  category,
-  address,
-  nickName,
-  profileImage,
-  image,
-  imageHeight,
-  imageWidth,
-  currentVisitDate,
-  reviewMainText,
-  reviewSubText,
-}) => {
+const UserReviewCard: FC<UserReviewCard> = ({ imageHeight, imageWidth, userReviewInfo }) => {
   const headerContent = (
     <div className="flex justify-between items-center">
       <div className="flex items-center space-x-1.5">
-        {profileImage ?? <Image url="/default/profile_default.png" width={30} height={30} alt="profile_default" />}
+        {userReviewInfo.profileImage ?? (
+          <Image url="/default/profile_default.png" width={30} height={30} alt="profile_default" />
+        )}
         <Typography variant="span" className="overflow-hidden whitespace-nowrap text-ellipsis text-[13px] max-w-28">
-          {nickName}
+          {userReviewInfo.nickName}
         </Typography>
       </div>
       <Typography variant="span" className="text-[#c8c8c8] text-[10px] text-right leading-snug">
         최근 방문일 <br />
-        {currentVisitDate}
+        {userReviewInfo.currentVisitDate}
       </Typography>
     </div>
   )
@@ -83,25 +61,25 @@ const UserReviewCard: FC<UserReviewCard> = ({
     <div className="flex justify-between items-center">
       <div>
         <Typography variant="p" className="text-[15px] font-medium">
-          {name}
+          {userReviewInfo.name}
         </Typography>
         <div className="flex items-center leading-[14px] mb-[5px]">
-          {score && (
+          {userReviewInfo.score && (
             <span className="flex items-center text-[14px] font-medium mr-[6px]">
               {scoreIcon}
-              {score}
+              {userReviewInfo.score}
             </span>
           )}
-          {reviewCount && (
+          {userReviewInfo.reviewCount && (
             <Typography variant="span" className="text-[13px] text-[#999]">
-              ({reviewCount})
+              ({userReviewInfo.reviewCount})
             </Typography>
           )}
         </div>
         <Typography
           variant="span"
           className="overflow-hidden whitespace-nowrap text-ellipsis block max-w-32 font-medium text-[12px] leading-4 text-[#666666]"
-        >{`${category} • ${address}`}</Typography>
+        >{`${userReviewInfo.category} • ${userReviewInfo.address}`}</Typography>
       </div>
       {bookmarkIcon}
     </div>
@@ -109,11 +87,11 @@ const UserReviewCard: FC<UserReviewCard> = ({
   const imageLayerContent = (
     <>
       <Typography variant="h3" className="overflow-hidden text-ellipsis break-keep text-[17px] text-white mb-1">
-        {reviewMainText}
+        {userReviewInfo.reviewMainText}
       </Typography>
-      {reviewSubText && (
+      {userReviewInfo.reviewSubText && (
         <Typography variant="p" className="overflow-hidden text-ellipsis break-keep text-xs text-white mb-1">
-          {reviewSubText}
+          {userReviewInfo.reviewSubText}
         </Typography>
       )}
     </>
@@ -122,7 +100,7 @@ const UserReviewCard: FC<UserReviewCard> = ({
   return (
     <VerticalCard
       variant="outlined"
-      image={image ?? ''}
+      image={userReviewInfo.image ?? ''}
       headerContent={headerContent}
       bottomContent={bottomContent}
       imageWidth={imageWidth}
