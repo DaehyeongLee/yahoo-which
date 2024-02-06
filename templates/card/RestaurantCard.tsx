@@ -3,11 +3,7 @@ import VerticalCard from '@/components/Card/VerticalCard'
 import Typography from '@/components/Typography/Typography'
 
 interface RestaurantCardProps {
-  name: string
-  score?: string
-  category: string
-  address: string
-  image?: string
+  restaurantCardInfo: any
   imageWidth: number
   imageHeight: number
 }
@@ -39,32 +35,24 @@ const bookmarkIcon = (
   </svg>
 )
 
-const RestaurantCard: FC<RestaurantCardProps> = ({
-  name,
-  score,
-  category,
-  address,
-  image,
-  imageWidth,
-  imageHeight,
-}) => {
+const RestaurantCard: FC<RestaurantCardProps> = ({ restaurantCardInfo, imageWidth, imageHeight }) => {
   return (
     <VerticalCard
-      image={image ?? ''}
-      BottomContent={
+      image={restaurantCardInfo.image ?? ''}
+      bottomContent={
         <div className="flex justify-between items-center">
           <div>
             <Typography variant="p" className="mb-1 font-medium">
-              {name}
+              {restaurantCardInfo.name}
             </Typography>
             <div className="flex leading-[14px]">
-              {score && (
+              {restaurantCardInfo.score && (
                 <span className="flex items-center text-[14px] font-medium mr-[6px]">
                   {scoreIcon}
-                  {score}
+                  {restaurantCardInfo.score}
                 </span>
               )}
-              <div className="overflow-hidden whitespace-nowrap text-ellipsis block max-w-32 font-medium text-[12px] leading-4 text-[#666]">{`${category} • ${address}`}</div>
+              <div className="overflow-hidden whitespace-nowrap text-ellipsis block max-w-32 font-medium text-[12px] leading-4 text-[#666]">{`${restaurantCardInfo.category} • ${restaurantCardInfo.address}`}</div>
             </div>
           </div>
           {bookmarkIcon}

@@ -14,6 +14,7 @@ import { useState } from 'react'
 import Modal from '@/components/Modal/Modal'
 import Accordion from '@/components/Accordion/Accordion'
 import Section from '@/templates/common/Section'
+import UserReviewCard from '@/templates/card/UserReviewCard'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -46,57 +47,24 @@ export default function Home() {
       <Section mainTitle="웨이팅 핫플레이스 BEST" subTitle="핫 한 웨이팅 라인업, 이제 고용대컴퍼니에서!" detailLink="/">
         <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
           {restaurantCards.map((card) => (
-            <RestaurantCard
-              key={card.id}
-              name={card.name}
-              score={card.score}
-              address={card.address}
-              category={card.category}
-              image={card.image}
-              imageHeight={200}
-              imageWidth={200}
-            />
+            <RestaurantCard key={card.id} restaurantCardInfo={card} imageHeight={200} imageWidth={200} />
           ))}
         </div>
       </Section>
       <Section mainTitle="즉시 예약이 가능한 레스토랑" detailLink="/">
         <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
           {restaurantCards.map((card) => (
-            <RestaurantTimeListCard
-              key={card.id}
-              name={card.name}
-              score={card.score}
-              address={card.address}
-              category={card.category}
-              image={card.image}
-              imageHeight={150}
-              imageWidth={250}
-              timeList={card.timeList}
-            />
+            <RestaurantTimeListCard key={card.id} restaurantCardInfo={card} imageHeight={150} imageWidth={250} />
           ))}
         </div>
       </Section>
-      <div className="mt-4 grid grid-cols-3">
-        <VerticalCard
-          variant="outlined"
-          image="/testImg.jpeg"
-          headerContent={
-            <div>
-              <Typography variant="span">아이윤</Typography>
-            </div>
-          }
-          BottomContent={
-            <div>
-              <Typography variant="p" className="mb-1">
-                해운대 타이가텐푸라
-              </Typography>
-              <Typography variant="span">일식 • 부산 해운대</Typography>
-            </div>
-          }
-          imageWidth={200}
-          imageHeight={200}
-        />
-      </div>
+      <Section mainTitle="유저의 리얼리뷰 Pick" subTitle="방문자들이 남긴 솔직한 리뷰를 만나보세요">
+        <div className="flex flex-nowrap space-x-2.5 overflow-x-auto overflow-y-hidden scrollbar-hide">
+          {restaurantCards.map((card) => (
+            <UserReviewCard key={card.id} userReviewInfo={card} imageHeight={200} imageWidth={200} />
+          ))}
+        </div>
+      </Section>
       <div className="grid grid-cols-3">
         <HorizontalCard
           variant="image_lg"
@@ -163,28 +131,42 @@ const restaurantCards = [
     id: 0,
     name: '가이연 천호 본점',
     score: '4.4',
+    reviewCount: 500,
     category: '샤브샤브',
     address: '천호',
     image: '/temp/sukiyaki.jpg',
     timeList: ['오후 6:00', '오후 6:30', '오후 7:00'],
+    nickName: '이몽니',
+    currentVisitDate: '2024.01.06',
+    reviewMainText: '배 터지는데도 끝까지 다 먹었네요',
+    reviewSubText: '음식 하나하나 고급스럽고 정성이 가득했어요',
   },
   {
     id: 1,
     name: '잊힐리야',
     score: '4.6',
+    reviewCount: 436,
     category: '요리주점',
     address: '성수',
     image: '/temp/drinkfood.jpg',
     timeList: ['', '', '오후 7:30'],
+    nickName: '나는 똑똑한 셀럽이라네',
+    currentVisitDate: '2024.01.03',
+    reviewMainText: '다음엔 친구들과 함께 와야겠어요!',
+    reviewSubText: '하나하나 맛과 향이 정말 깊어서 놀랬습니다',
   },
   {
     id: 2,
     name: '하이디라오 건대 본점',
     score: '4.2',
+    reviewCount: 265,
     category: '중식',
     address: '건대',
     image: '/temp/hidirao.jpg',
     timeList: ['오후 7:00', '오후 7:30', '오후 8:00'],
+    nickName: '고독한 미식가',
+    currentVisitDate: '2024.01.01',
+    reviewMainText: '하이디라오는 무조건 건대',
   },
 ]
 

@@ -14,7 +14,7 @@ export const Sample: Story = {
     <div className="grid grid-cols-3">
       <VerticalCard
         image="/testImg.jpeg"
-        BottomContent={
+        bottomContent={
           <div>
             <h3>해운대 타이가텐푸라</h3>
             <p>일식 • 부산 해운대</p>
@@ -31,7 +31,7 @@ export const Sample: Story = {
             <p>아이운</p>
           </div>
         }
-        BottomContent={
+        bottomContent={
           <div>
             <h3>해운대 타이가텐푸라</h3>
             <p>일식 • 부산 해운대</p>
