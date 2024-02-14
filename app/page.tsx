@@ -15,6 +15,9 @@ import Modal from '@/components/Modal/Modal'
 import Accordion from '@/components/Accordion/Accordion'
 import Section from '@/templates/common/Section'
 import UserReviewCard from '@/templates/card/UserReviewCard'
+import IconButton from '@/components/IconButton/IconButton'
+import BellOutlineIcon from '@/assets/icons/bell-outline.svg'
+import BookmarkOutlineIcon from '@/assets/icons/bookmark-outline.svg'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState<boolean>(false)
@@ -29,6 +32,12 @@ export default function Home() {
   return (
     <main>
       <div>
+        <IconButton>
+          <BellOutlineIcon />
+        </IconButton>
+        <IconButton>
+          <BookmarkOutlineIcon />
+        </IconButton>
         <Input placeholder={'지역, 음식, 매장명 검색'} icon={IconSearch} />
         <Button variant="outlined" onClick={() => setModalOpen(true)}>
           {/* TODO: &#62;는 아이콘 추가 이후 대체 */}
