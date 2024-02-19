@@ -18,16 +18,16 @@ type PlacesType =
 interface TooltipProps {
   id: string
   content: ReactElement
-  position: PlacesType
+  place?: PlacesType
   children: ReactNode
 }
 
-const Tooltip: FC<TooltipProps> = ({ children, id, content, position }) => {
+const Tooltip: FC<TooltipProps> = ({ children, id, content, place = 'bottom' }) => {
   return (
     <>
       <span data-tooltip-id={id}>{children}</span>
-      <ReactTooltip id={id} data-tooltip-place={position} className="text-[14px] font-medium p-3 text-center">
-        {content}
+      <ReactTooltip id={id} place={place} openOnClick className="text-center !p-3 !opacity-100 z-50">
+        <span className="text-[14px] font-medium">{content}</span>
       </ReactTooltip>
     </>
   )
