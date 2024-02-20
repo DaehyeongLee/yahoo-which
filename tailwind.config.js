@@ -7,7 +7,6 @@ module.exports = {
     './templates/**/*.{js,ts,jsx,tsx,mdx}',
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    'node_modules/flowbite-react/lib/esm/**/*.js',
   ],
   theme: {
     fontSize: {
@@ -24,5 +23,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('flowbite/plugin'), require('tailwind-scrollbar-hide')],
+  plugins: [require('tailwind-scrollbar-hide')],
 }
