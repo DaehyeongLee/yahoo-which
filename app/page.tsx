@@ -1,7 +1,18 @@
 import React, { FC } from 'react'
+import Carousel from '@/components/Carousel/Carousel'
 
 const MainPage = () => {
-  return <p>Main Page</p>
+  return (
+    <div>
+      <Carousel
+        contents={[
+          { img: '/temp/banner1.webp', link: '/' },
+          { img: '/temp/banner2.webp' },
+          { img: '/temp/banner3.webp', link: '/' },
+        ]}
+      />
+    </div>
+  )
 }
 
 export default MainPage
