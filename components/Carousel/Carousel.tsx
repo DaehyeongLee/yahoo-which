@@ -11,30 +11,24 @@ export interface CarouselContentType {
   img: string
   link?: string
 }
-export type CarouselVariant = 'default' | 'highlight'
+// 프로젝트의 슬라이드는 메인페이지 광고, 배너 슬라이드 두가지 유형으로 제한한다.
+export type CarouselVariant = 'main' | 'banner'
 interface CarouselProps {
   contents: Array<CarouselContentType>
   variant?: CarouselVariant
-  className?: string
-  slidesPerView?: number
-  imageWidth: number
-  imageHeight: number
+  slideClassName?: string
+  slidesPerView?: number | 'auto'
 }
 
-const Carousel: FC<CarouselProps> = ({
-  contents,
-  variant = 'default',
-  className = '',
-  slidesPerView = 3,
-  imageWidth,
-  imageHeight,
-}) => {
+const Carousel: FC<CarouselProps> = ({ contents, variant = 'main', slideClassName = '', slidesPerView = 'auto' }) => {
+  const slideWidth = variant === 'main' ? 430 : 480
+  const slideHeight = variant === 'main' ? 280 : 160
   const image = (url: string, index: number) => {
     return (
       <Image
         url={url}
-        width={imageWidth}
-        height={imageHeight}
+        width={slideWidth}
+        height={slideHeight}
         className="object-cover rounded-lg"
         alt={`carousel-${index}`}
       />
@@ -57,7 +51,12 @@ const Carousel: FC<CarouselProps> = ({
       }}
     >
       {contents.map((content, index) => (
-        <SwiperSlide key={`carousel-${index}`}>
+        <SwiperSlide
+          key={`carousel-${index}`}
+          className={`${variant === 'main' ? '!w-[430px]' : '!w-[480px]'} ${
+            variant === 'main' ? 'h-[280px]' : 'h-[160px]'
+          } ${slideClassName}`}
+        >
           {content.link ? <Link href={content.link}>{image(content.img, index)}</Link> : image(content.img, index)}
         </SwiperSlide>
       ))}
